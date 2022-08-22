@@ -1,0 +1,1 @@
+from routes.web import app

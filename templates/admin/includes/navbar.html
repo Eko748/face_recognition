@@ -1,0 +1,46 @@
+{% include "admin/assets/asset_navbar.html" %}
+
+<nav class="navbar navbar-dark navbar-expand-md shadow" style="background: #3591ae;">
+  <div class="container"><a class="navbar-brand" href="#">CBN</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="nav navbar-nav ml-auto nav-pills">
+            {% if session.level == 'ADMIN' : %}
+              <li class="nav-item"><a class="nav-link" href="#">Beranda</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Tentang</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Manage</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Rekap</a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{ session.username }}</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Pengaturan</a></li>              
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{{url_for('logouts')}}">Logout</a></li>
+                </ul>
+              </li>
+            {% elif session.level == 'EMPLOYEE' : %}
+              <!-- START MENU UNTUK LEVEL KARYAWAN -->
+              <li class="nav-item"><a class="nav-link" href="#">Beranda</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Gaji</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Absen</a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{ session.username }}</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Pengaturan</a></li>              
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{{url_for('logouts')}}">Logout</a></li>
+                </ul>
+              </li>
+            {% else: %}
+              <!-- START MENU UNTUK LEVEL KARYAWAN -->
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Beranda</a>
+              </li>         
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Tentang</a>
+              </li>
+              <!-- END MENU UNTUK LEVEL KARYAWAN -->
+            {% endif %}
+          </ul>
+      </div>
+  </div>
+</nav>

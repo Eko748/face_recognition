@@ -1,0 +1,9 @@
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='navbar/css/bootstrap.min.css') }}">
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='navbar/js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='navbar/js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='navbar/js/bootstrap.bundle.min.js') }}"></script>
+{% endblock %}
